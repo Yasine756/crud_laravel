@@ -1,1 +1,35 @@
-*.sqlite*
+# Dossiers de dépendances
+/vendor/
+/node_modules/
+
+# Fichiers de configuration
+.env
+.env.local
+
+# Fichiers générés
+/composer.lock
+/yarn.lock
+
+# Fichiers de compilation
+/public/css/
+/public/js/
+
+# Dossiers de stockage de caches et logs
+/storage/logs/
+/bootstrap/cache/
+
+# Fichiers temporaires
+.DS_Store
+Thumbs.db
+
+# Fichiers de sauvegarde et de configuration de l'éditeur
+*.swp
+*~
+
+# Dossiers de configuration spécifiques aux environnements
+/.vagrant/
+/.docker/
+
+# Dossiers spécifiques à certains éditeurs
+/.vscode/
+/.idea/
