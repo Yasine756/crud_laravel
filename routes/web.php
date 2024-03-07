@@ -14,7 +14,8 @@ use App\Http\Controllers\StagiaireController;
 */
 
 Route::get('/',[StagiaireController::class,'Afficher']);
-Route::get('/Modifier',[StagiaireController::class,'Modifier']);
+Route::get('/Modifier/{id}',[StagiaireController::class,'Modifier']);
 Route::get('/Ajouter',[StagiaireController::class,'Ajouter']);
 Route::post('/Ajouter/traitement',[StagiaireController::class,'Ajouter_traitement']);
 Route::get('/supprimer/{id}',[StagiaireController::class,'supprimer']);
+Route::post('/Modifier/traitement',[StagiaireController::class,'Modifier_Ttraitement']);

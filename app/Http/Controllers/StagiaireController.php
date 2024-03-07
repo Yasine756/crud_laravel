@@ -13,11 +13,27 @@ class StagiaireController extends Controller
         return view('stagiaire.acceuil',compact('stagiaire'));
     }
 
-    public function modifier()
+    public function Modifier($id)
     {
-        return view('stagiaire.modifier');
+        $stagiaire=Stagiaire::find($id);
+        return view('stagiaire.modifier',compact('stagiaire'));
     }
-
+    public function Modifier_Ttraitement(Request $request){
+        $request->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'age'=>'required',
+            'email'=>'required|email',
+        ]);
+        $stagiaire=Stagiaire::find($request->id);
+        $stagiaire->nom=$request->nom;
+        $stagiaire->prenom=$request->prenom;
+        $stagiaire->age=$request->age;
+        $stagiaire->email=$request->email;
+        $stagiaire->update();
+        
+        return redirect('/')->with('status','stagiaire modifié par succées');
+    }
     public function ajouter()
     {
         return view('stagiaire.ajouter');
@@ -51,4 +67,5 @@ class StagiaireController extends Controller
             return redirect('/')->with('status', "Stagiaire $nom a été supprimé");
         } 
     }
+    
 }

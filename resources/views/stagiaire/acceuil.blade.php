@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
-   <div class="d-flex justify-content-between mb-5 mt-5">
+   <div class="d-flex justify-content-evenly mb-5 mt-5">
     
     <h1 class="text-success fs-2"><i class="bi bi-patch-check"></i> CRUD</h1>
     <a href="/Ajouter"><button class="btn btn-primary"><i class="bi bi-arrow-down-up"></i>Ajouter Stagiaire</button></a>
@@ -19,23 +19,25 @@
       <th scope="col">id</th>
       <th scope="col">Nom</th>
       <th scope="col">prenom</th>
+      <th scope="col">Age</th>
       <th scope="col">Email</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
     @if(session('status'))
-      <div class="alert alert-danger">{{session('status')}} </div>
+      <div class="alert alert-primary">{{session('status')}} </div>
     @endif
     
       @foreach($stagiaire as $i)
             <tr>
             <th scope="row">{{$i->id}}</th>
             <td>{{$i->nom}}</td>
+            <td>{{$i->prenom}}</td>
             <td>{{$i->age}}</td>
             <td>{{$i->email}}</td>
       <td>
-          <a href="/Modifier"><button class="btn btn-info">
+          <a href="/Modifier/{{$i->id}}"><button class="btn btn-info">
               Modifier
           </button></a>
           <a href="supprimer/{{$i->id}}">
