@@ -67,5 +67,5 @@ class StagiaireController extends Controller
             return redirect('/')->with('status', "Stagiaire $nom a été supprimé");
         } 
     }
-    
+  
 }
